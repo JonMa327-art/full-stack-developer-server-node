@@ -7,9 +7,22 @@ import express from "express";
 //allows resources to be shared acrcoss domains
 import cors from 'cors';
 
+
+//import conterllers
 import helloController from "./controllers/hello.controller.js";
 import userController from "./controllers/user-controller.js"
 import tuitsController from "./controllers/tuits-controller.js";
+import mongoose from "mongoose";
+// import mongoose from "mongoose";
+
+//connects to the web database
+// mongoose.connect('mongodb://localhost:27017/webdev');
+// mongoose.connect('mongodb+srv://JonathanMa:<password>@cluster0.jhkui.mongodb.net/myFirstDatabase?retryWrites=true&w=majority');
+const CONNECTION_STRING = 'mongodb+srv://JonathanMa:bag027mar@cluster0.hnrrl.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+    || 'mongodb://localhost:27017/webdev'
+// mongoose.connect('mongodb://localhost:27017/webdev');
+mongoose.connect(CONNECTION_STRING);
+
 
 //express() creates an instance of the express library and assigns it to app
 const app = express();
